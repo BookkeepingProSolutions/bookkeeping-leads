@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>7 Financial Tricks for Construction Business Owners to Make More Profit</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap');
 
         * {
             margin: 0;
@@ -18,7 +18,7 @@
             font-family: 'Montserrat', sans-serif;
             background: #1a1a1a;
             color: #ffffff;
-            line-height: 1.6;
+            line-height: 1.8;
         }
 
         .page {
@@ -26,6 +26,7 @@
             margin: 0 auto;
             background: #1a1a1a;
             position: relative;
+            page-break-after: always;
         }
 
         .page-content {
@@ -49,6 +50,7 @@
             background-image: radial-gradient(circle, #808080 1px, transparent 1px);
             background-size: 10px 10px;
             z-index: 1;
+            opacity: 0.2;
         }
 
         h1 {
@@ -56,6 +58,7 @@
             font-weight: 800;
             margin-bottom: 30px;
             line-height: 1.1;
+            text-align: center;
         }
 
         h2 {
@@ -63,31 +66,38 @@
             font-weight: 700;
             margin: 60px 0 30px 0;
             color: #ffffff;
+            text-align: center;
         }
 
         h2 .number {
             color: #d32f2f;
-            font-size: 42px;
+            font-size: 48px;
             font-weight: 800;
+            display: block;
+            margin-bottom: 10px;
         }
 
         h3 {
             font-size: 24px;
             font-weight: 600;
-            margin: 30px 0 15px 0;
+            margin: 30px 0 20px 0;
             color: #f5f5f5;
         }
 
         p {
             font-size: 15px;
-            line-height: 1.8;
+            line-height: 1.9;
             margin-bottom: 20px;
             color: #e0e0e0;
         }
 
+        .centered {
+            text-align: center;
+        }
+
         .intro {
             font-size: 16px;
-            line-height: 1.9;
+            line-height: 2;
             margin: 40px 0;
         }
 
@@ -99,19 +109,19 @@
             display: inline-block;
             background: #d32f2f;
             color: white;
-            padding: 8px 20px;
+            padding: 12px 30px;
             font-size: 16px;
             font-weight: 700;
             margin: 20px 0;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
 
         .highlight-box {
             background: #2a2a2a;
-            border-left: 4px solid #d32f2f;
-            padding: 25px;
-            margin: 25px 0;
+            border-left: 5px solid #d32f2f;
+            padding: 30px;
+            margin: 30px 0;
         }
 
         .highlight-box p {
@@ -120,27 +130,59 @@
 
         ul {
             list-style: none;
-            margin: 20px 0;
+            margin: 25px 0;
+            padding-left: 0;
         }
 
         ul li {
-            padding-left: 25px;
-            margin-bottom: 12px;
+            padding-left: 35px;
+            margin-bottom: 15px;
             position: relative;
             color: #e0e0e0;
+            line-height: 1.8;
         }
 
         ul li:before {
-            content: "▸";
+            content: "●";
             position: absolute;
-            left: 0;
+            left: 10px;
             color: #d32f2f;
-            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            margin: 40px 0;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
+        }
+
+        .section-image {
+            width: 100%;
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            margin: 30px 0;
+            border-radius: 8px;
         }
 
         .cta-section {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            padding: 50px;
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+            padding: 60px 50px;
             margin: 60px -50px -60px -50px;
             text-align: center;
         }
@@ -151,9 +193,10 @@
         }
 
         .cta-section p {
-            font-size: 16px;
-            line-height: 1.9;
-            margin: 25px 0;
+            font-size: 17px;
+            line-height: 2;
+            margin: 25px auto;
+            max-width: 700px;
         }
 
         .page-number {
@@ -162,15 +205,16 @@
             right: 50px;
             background: #d32f2f;
             color: white;
-            padding: 8px 16px;
+            padding: 10px 18px;
             font-weight: 700;
-            font-size: 14px;
+            font-size: 16px;
+            border-radius: 4px;
         }
 
         hr {
             border: none;
             border-top: 1px solid #404040;
-            margin: 40px 0;
+            margin: 50px 0;
         }
 
         strong {
@@ -178,73 +222,83 @@
             font-weight: 700;
         }
 
-        .image-container {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 250"><rect fill="%23333333" width="800" height="250"/><text x="50%" y="50%" fill="%23555555" font-family="Arial" font-size="24" text-anchor="middle" dominant-baseline="middle">Construction Business</text></svg>');
-            background-size: cover;
-            background-position: center;
-            margin: 30px 0;
-            border-radius: 8px;
-            position: relative;
-            overflow: hidden;
-        }
-
         .corner-deco {
             position: absolute;
-            width: 50px;
-            height: 50px;
-            border: 2px solid #d32f2f;
+            width: 60px;
+            height: 60px;
+            border: 3px solid #d32f2f;
         }
 
         .corner-tl {
-            top: 20px;
-            left: 20px;
+            top: 30px;
+            left: 30px;
             border-right: none;
             border-bottom: none;
         }
 
         .corner-br {
-            bottom: 20px;
-            right: 20px;
+            bottom: 30px;
+            right: 30px;
             border-left: none;
             border-top: none;
+        }
+
+        @media print {
+            .page {
+                page-break-after: always;
+            }
         }
     </style>
 </head>
 
 <body>
+    <!-- COVER PAGE -->
     <div class="page">
-        <div class="deco-circle" style="width: 200px; height: 200px; top: 100px; left: -100px;"></div>
-        <div class="deco-circle" style="width: 300px; height: 300px; top: 50%; right: -150px;"></div>
-        <div class="deco-dots" style="top: 150px; right: 50px; opacity: 0.3;"></div>
+        <div class="deco-circle" style="width: 250px; height: 250px; top: 100px; left: -125px;"></div>
+        <div class="deco-circle" style="width: 350px; height: 350px; bottom: 100px; right: -175px;"></div>
+        <div class="deco-dots" style="top: 200px; right: 80px;"></div>
 
-        <div class="page-content">
+        <div class="page-content centered">
             <div class="corner-deco corner-tl"></div>
 
-            <h1>7 Financial Tricks for Construction Business Owners to Make More Profit</h1>
-            <p style="color: #999; margin-bottom: 60px;">BookkeepingPro Solutions</p>
+            <div style="height: 100px;"></div>
+
+            <h1 style="font-size: 54px; margin-bottom: 40px;">7 Financial Tricks<br>for Construction<br>Business
+                Owners<br>to Make More Profit</h1>
+
+            <div style="width: 100px; height: 3px; background: #d32f2f; margin: 40px auto;"></div>
+
+            <p style="color: #999; font-size: 18px; margin: 40px 0;">BookkeepingPro Solutions</p>
+
+            <div class="hero-image"
+                style="background-image: url('construction_site_hero_1763579376848.png'); margin-top: 60px;"></div>
+
+            <div class="corner-deco corner-br"></div>
+        </div>
+    </div>
+
+    <!-- INTRO PAGE -->
+    <div class="page">
+        <div class="page-content">
+            <h2 style="font-size: 42px; margin-top: 40px;">Hello, Builder!</h2>
 
             <div class="intro">
-                <p><strong style="font-size: 18px;">Hello, Builder!</strong></p>
-
-                <p>I know you love what you do—turning blueprints into reality and creating structures that last. But
+                <p>I know you love what you do . turning blueprints into reality and creating structures that last. But
                     that doesn't mean you shouldn't be rewarded for your hard work, right? You should be able to do what
                     you love AND make a healthy profit at the same time.</p>
 
                 <p>For a lot of construction business owners, the biggest challenge is juggling project management while
-                    also handling the business side—estimating, bidding, bookkeeping, and taxes. You may think handling
-                    your own books saves you money, but it could be costing you tens of thousands in missed deductions,
-                    poor cash flow management, and unnecessary stress.</p>
+                    also handling the business side . estimating, bidding, bookkeeping, and taxes. You may think
+                    handling your own books saves you money, but it could be costing you tens of thousands in missed
+                    deductions, poor cash flow management, and unnecessary stress.</p>
 
                 <p>Even if you've got someone in the office handling the books or you've outsourced them to a general
                     bookkeeper, you could still be missing huge opportunities. The construction industry is unique, and
                     the financial strategies that maximize profit aren't common knowledge for generalist bookkeepers and
                     accountants.</p>
 
-                <p>Having worked with construction businesses for years—from solo contractors to multi-million dollar
-                    companies—I've seen what separates thriving businesses from struggling ones. It's not always about
+                <p>Having worked with construction businesses for years . from solo contractors to multi-million dollar
+                    companies . I've seen what separates thriving businesses from struggling ones. It's not always about
                     landing bigger jobs; it's about keeping more of what you earn.</p>
 
                 <p><strong>Wouldn't you love to keep more profit at the end of each month while spending less time
@@ -254,10 +308,17 @@
                     in their pockets and free themselves from the administrative grind.</p>
             </div>
 
-            <hr>
+            <div class="page-number">01</div>
+        </div>
+    </div>
 
-            <h2><span class="number">1.</span> The perfect business structure</h2>
-            <div class="savings-badge">Estimated savings: $18,000-$35,000/year</div>
+    <!-- TRICK 1 -->
+    <div class="page">
+        <div class="page-content">
+            <h2><span class="number">1</span>The Perfect Business Structure</h2>
+            <div class="centered">
+                <div class="savings-badge">Estimated Savings: $18,000 – $35,000/year</div>
+            </div>
 
             <p>I'd love to tell you exactly what the perfect business structure is, but it's not quite that simple. Even
                 within the construction industry, there are a lot of variables. But I can tell you that there's a
@@ -282,8 +343,8 @@
 
             <p>S-Corp status allows you to increase your tax savings on things like your health insurance costs, vehicle
                 expenses (huge for construction!), equipment costs, and much more. It also allows you to adjust your
-                ratio of salary/profit distributions, which can make a portion of your income exempt from payroll
-                tax—potentially saving you thousands!</p>
+                ratio of salary/profit distributions, which can make a portion of your income exempt from payroll tax .
+                potentially saving you thousands!</p>
 
             <p>Pass-through entities like S-Corps, sole proprietors, and partnerships may also be able to deduct 20
                 percent of their Qualified Business Income (Section 199A deduction). This can be a huge deduction and
@@ -293,14 +354,17 @@
                 and cons to find the perfect fit. If you're currently set up with the wrong structure, finding the best
                 one could save you $18,000-$35,000 a year and continue to save you money year after year.</p>
 
-            <div class="page-number">01</div>
+            <div class="page-number">02</div>
         </div>
     </div>
 
+    <!-- TRICK 2 -->
     <div class="page">
         <div class="page-content">
-            <h2><span class="number">2.</span> Save on tax-free expenses with an Accountable Plan</h2>
-            <div class="savings-badge">Estimated savings: $3,000-$8,000/year</div>
+            <h2><span class="number">2</span>Save on Tax-Free Expenses<br>with an Accountable Plan</h2>
+            <div class="centered">
+                <div class="savings-badge">Estimated Savings: $3,000 – $8,000/year</div>
+            </div>
 
             <p>As a construction business owner, you're probably paying for a lot of things out of pocket that could be
                 tax-deductible business expenses:</p>
@@ -331,14 +395,19 @@
                 equipment out of pocket. They'll get tax-free reimbursement, and you'll save yourself payroll tax on
                 those payments as well.</p>
 
-            <div class="page-number">02</div>
+            <div class="page-number">03</div>
         </div>
     </div>
 
+    <!-- TRICK 3 -->
     <div class="page">
         <div class="page-content">
-            <h2><span class="number">3.</span> Master job costing or it will ruin you</h2>
-            <div class="savings-badge">Estimated savings: $25,000-$75,000/year</div>
+            <div class="section-image" style="background-image: url('construction_planning_1763579382204.png');"></div>
+
+            <h2><span class="number">3</span>Master Job Costing<br>or It Will Ruin You</h2>
+            <div class="centered">
+                <div class="savings-badge">Estimated Savings: $25,000 – $75,000/year</div>
+            </div>
 
             <p>In the construction business, knowing your true cost per job is a survival skill. If your cost tracking
                 is out of control (or worse, you don't track it at all), there's no way you can manage your profits or
@@ -368,10 +437,10 @@
                 QuickBooks and help you track the profitability of each job. Examples include:</p>
 
             <ul>
-                <li><strong>Buildertrend</strong> - Comprehensive project management with built-in financials</li>
-                <li><strong>CoConstruct</strong> - Perfect for custom builders and remodelers</li>
-                <li><strong>Foundation</strong> - Great for commercial contractors</li>
-                <li><strong>QuickBooks Projects</strong> - Built right into QuickBooks Online</li>
+                <li><strong>Buildertrend</strong> . Comprehensive project management with built-in financials</li>
+                <li><strong>CoConstruct</strong> . Perfect for custom builders and remodelers</li>
+                <li><strong>Foundation</strong> . Great for commercial contractors</li>
+                <li><strong>QuickBooks Projects</strong> . Built right into QuickBooks Online</li>
             </ul>
 
             <p>Want to know which projects are profitable and which are draining your cash? Need to adjust your bidding
@@ -379,14 +448,17 @@
                 could easily save you $25,000-$75,000 a year by helping you avoid unprofitable work and bid more
                 accurately.</p>
 
-            <div class="page-number">03</div>
+            <div class="page-number">04</div>
         </div>
     </div>
 
+    <!-- TRICK 4 -->
     <div class="page">
         <div class="page-content">
-            <h2><span class="number">4.</span> Optimize your labor costs</h2>
-            <div class="savings-badge">Estimated savings: $15,000-$40,000/year</div>
+            <h2><span class="number">4</span>Optimize Your Labor Costs</h2>
+            <div class="centered">
+                <div class="savings-badge">Estimated Savings: $15,000 – $40,000/year</div>
+            </div>
 
             <p>Labor is typically one of your top three expenses in construction, so you need to maximize efficiency and
                 make strategic decisions about your workforce.</p>
@@ -394,9 +466,9 @@
             <p><strong>Employees vs. Subcontractors: Do you know the difference?</strong></p>
 
             <p>Many construction businesses misclassify workers as independent contractors when they should be
-                employees. Unfortunately, we don't get to pick and choose who's an employee and who's a contractor—there
-                are clear IRS guidelines. If you misclassify, that could be considered payroll tax fraud and can pop up
-                during audits, insurance claims, or even workers' comp investigations.</p>
+                employees. Unfortunately, we don't get to pick and choose who's an employee and who's a contractor .
+                there are clear IRS guidelines. If you misclassify, that could be considered payroll tax fraud and can
+                pop up during audits, insurance claims, or even workers' comp investigations.</p>
 
             <div class="highlight-box">
                 <p><strong>Red flags for misclassification:</strong></p>
@@ -423,14 +495,17 @@
             <p>Additionally, accurate payroll tracking by job site helps you identify which crews are most efficient and
                 where you might have productivity issues. Without this data, you're bidding blind on labor costs.</p>
 
-            <div class="page-number">04</div>
+            <div class="page-number">05</div>
         </div>
     </div>
 
+    <!-- TRICK 5 -->
     <div class="page">
         <div class="page-content">
-            <h2><span class="number">5.</span> Pay yourself the right way</h2>
-            <div class="savings-badge">Estimated savings: $8,000-$20,000/year</div>
+            <h2><span class="number">5</span>Pay Yourself the Right Way</h2>
+            <div class="centered">
+                <div class="savings-badge">Estimated Savings: $8,000 – $20,000/year</div>
+            </div>
 
             <p>Hopefully this will also mean "pay yourself A LOT," but it starts with paying yourself correctly and
                 consistently.</p>
@@ -455,7 +530,7 @@
                 be careful. Within those rules, though, there's a lot of room for strategy. Adjusting your salary and
                 distributions can save you thousands in payroll taxes.</p>
 
-            <p>Not only do you need to pay yourself the right way, but you should also be paying yourself FIRST—before
+            <p>Not only do you need to pay yourself the right way, but you should also be paying yourself FIRST . before
                 you pay suppliers, before you upgrade equipment, before you do anything else. Your bookkeeper can help
                 you plan and budget your finances to be sure you're actually getting paid consistently.</p>
 
@@ -463,17 +538,22 @@
                 build the best benefits package, and ensure the owner gets paid what they deserve for the hard work they
                 put in.</p>
 
-            <div class="page-number">05</div>
+            <div class="page-number">06</div>
         </div>
     </div>
 
+    <!-- TRICK 6 -->
     <div class="page">
         <div class="page-content">
-            <h2><span class="number">6.</span> Maximize equipment and vehicle deductions</h2>
-            <div class="savings-badge">Estimated savings: $10,000-$50,000/year</div>
+            <div class="section-image" style="background-image: url('construction_equipment_1763579388440.png');"></div>
+
+            <h2><span class="number">6</span>Maximize Equipment<br>and Vehicle Deductions</h2>
+            <div class="centered">
+                <div class="savings-badge">Estimated Savings: $10,000 – $50,000/year</div>
+            </div>
 
             <p>As a construction business owner, you probably have significant investments in vehicles, tools, and
-                equipment. The tax code offers HUGE opportunities to deduct these expenses—but only if you know the
+                equipment. The tax code offers HUGE opportunities to deduct these expenses . but only if you know the
                 rules and track everything properly.</p>
 
             <div class="highlight-box">
@@ -483,8 +563,8 @@
                         purchases in the year you buy them</li>
                     <li><strong>Bonus Depreciation:</strong> Additional first-year deduction for qualifying property
                     </li>
-                    <li><strong>Vehicle Deductions:</strong> Choose between standard mileage or actual
-                        expenses—whichever saves you more</li>
+                    <li><strong>Vehicle Deductions:</strong> Choose between standard mileage or actual expenses .
+                        whichever saves you more</li>
                     <li><strong>Heavy Vehicle Exception:</strong> Trucks and vans over 6,000 lbs GVW get special
                         treatment</li>
                 </ul>
@@ -506,16 +586,17 @@
                 nothing slips through the cracks. This is one of the easiest ways to save tens of thousands in taxes.
             </p>
 
-            <div class="page-number">06</div>
+            <div class="page-number">07</div>
         </div>
     </div>
 
+    <!-- TRICK 7 -->
     <div class="page">
         <div class="page-content">
-            <div class="image-container"></div>
-
-            <h2><span class="number">7.</span> A big missed opportunity</h2>
-            <div class="savings-badge">Estimated savings: $50,000+/year</div>
+            <h2><span class="number">7</span>A Big Missed Opportunity</h2>
+            <div class="centered">
+                <div class="savings-badge">Estimated Savings: $50,000+/year</div>
+            </div>
 
             <p>As much as construction business owners already have on their plate, many of them still feel the need to
                 handle their own books in their "spare time." Maybe you're one of them.</p>
@@ -543,17 +624,17 @@
             <p>As a bookkeeper and consultant who's spent almost my entire career in the construction business, I can
                 tell you the ins and outs of this industry make it worthwhile to hire a construction specialist.</p>
 
-            <div class="corner-deco corner-br"></div>
-            <div class="page-number">07</div>
+            <div class="page-number">08</div>
         </div>
     </div>
 
+    <!-- CTA PAGE -->
     <div class="page">
         <div class="cta-section">
-            <h2>What's next?</h2>
+            <h2 style="font-size: 44px; margin-bottom: 40px;">What's Next?</h2>
 
-            <p><strong>Implement these strategies to maximize your profits and get the most out of your construction
-                    business!</strong></p>
+            <p><strong style="font-size: 20px;">Implement these strategies to maximize your profits and get the most out
+                    of your construction business!</strong></p>
 
             <p>It's absolutely crucial to have timely, accurate financial data to work with. I highly recommend
                 outsourcing this to a professional who knows the construction industry and can handle the day-to-day,
@@ -561,36 +642,51 @@
                 important numbers.</p>
 
             <p>With your books in order, you'll boost your profits, slash the time you spend on administrative tasks,
-                and free yourself to focus on what you do best—building.</p>
+                and free yourself to focus on what you do best . building.</p>
 
-            <p style="font-size: 18px;"><strong>The team at BookkeepingPro Solutions would love to help.</strong> We
-                specialize in serving construction businesses across the USA with uniquely focused financial services.
+            <div style="height: 40px;"></div>
+
+            <p style="font-size: 20px; font-weight: 700;">The team at BookkeepingPro Solutions would love to help.</p>
+            <p style="font-size: 17px;">We specialize in serving construction businesses across the USA with uniquely
+                focused financial services.</p>
+
+            <div style="height: 40px;"></div>
+
+            <div
+                style="background: #d32f2f; color: white; padding: 20px 40px; display: inline-block; font-size: 20px; font-weight: 700; border-radius: 5px; margin: 20px 0;">
+                CLICK HERE TO SCHEDULE YOUR<br>FREE CONSULTATION CALL
+            </div>
+
+            <div style="height: 30px;"></div>
+
+            <p>We'll talk about your business, your goals, and your challenges and see how we could help you keep more
+                of your hard-earned profit.</p>
+
+            <div style="height: 50px;"></div>
+
+            <h3 style="color: white; margin-top: 0; font-size: 24px; font-weight: 700;">Getting the Most Out of Our Call
+            </h3>
+            <p style="max-width: 600px; margin: 20px auto;">So that we can help you get a ton of value from our call:
             </p>
-
-            <p style="font-size: 20px; margin-top: 40px;"><strong>CLICK HERE TO SCHEDULE YOUR FREE CONSULTATION
-                    CALL</strong></p>
-
-            <p style="margin-top: 30px;">We'll talk about your business, your goals, and your challenges and see how we
-                could help you keep more of your hard-earned profit.</p>
-
-            <h3 style="color: white; margin-top: 50px; font-size: 20px;">Getting the Most Out of Our Call</h3>
-            <p style="text-align: left; max-width: 600px; margin: 20px auto;">So that we can help you get a ton of value
-                from our call:</p>
-            <ul style="text-align: left; max-width: 600px; margin: 20px auto; list-style-position: inside;">
+            <ul style="text-align: left; max-width: 600px; margin: 30px auto;">
                 <li>Have a copy of your most recent Profit & Loss statement, if you have it</li>
                 <li>Be logged into your current accounting software, if possible</li>
                 <li>Make a quick list of any questions you have for us</li>
             </ul>
 
-            <p style="margin-top: 40px;">This will allow us to quickly determine where you can save the most money and
+            <p style="margin-top: 50px;">This will allow us to quickly determine where you can save the most money and
                 boost your profits.</p>
 
-            <p style="margin-top: 30px; font-size: 18px;"><strong>From one builder to another, we're looking forward to
-                    talking with you!</strong></p>
+            <div style="height: 40px;"></div>
 
-            <p style="margin-top: 20px;"><strong>— The Team at BookkeepingPro Solutions</strong></p>
+            <p style="font-size: 19px; font-weight: 700;">From one builder to another, we're looking forward to talking
+                with you!</p>
 
-            <div class="page-number">08</div>
+            <div style="height: 20px;"></div>
+
+            <p style="font-size: 16px; font-weight: 700;">. The Team at BookkeepingPro Solutions</p>
+
+            <div class="page-number">09</div>
         </div>
     </div>
 </body>
