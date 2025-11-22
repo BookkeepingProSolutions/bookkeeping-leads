@@ -20,11 +20,30 @@ export default function Footer() {
                     <div>
                         <h4 className="text-lg font-bold mb-4">Services</h4>
                         <ul className="space-y-2 text-gray-400">
-                            <li>• Bookkeeping for Construction</li>
-                            <li>• Strategic Financial Planning</li>
-                            <li>• Payroll Services</li>
-                            <li>• Tax Services</li>
-                            <li>• Job Costing & Profitability Analysis</li>
+                            <li className="flex items-start gap-2">
+                                <span className="text-green-400 mt-1">✔</span>
+                                <span>Bank Reconciliation</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                                <span className="text-green-400 mt-1">✔</span>
+                                <span>AP & AR Management</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                                <span className="text-green-400 mt-1">✔</span>
+                                <span>Payroll & Taxes</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                                <span className="text-green-400 mt-1">✔</span>
+                                <span>Catch-Up & Clean-Up</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                                <span className="text-green-400 mt-1">✔</span>
+                                <span>CPA-Ready Financial Statements</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                                <span className="text-green-400 mt-1">✔</span>
+                                <span>Financial Dashboards & KPIs</span>
+                            </li>
                         </ul>
                     </div>
 
@@ -46,7 +65,7 @@ export default function Footer() {
                             </p>
                             <div className="mt-4">
                                 <a
-                                    href="https://calendly.com/bookkeepingprosolutions/new-meeting"
+                                    href="https://calendly.com/bookkeepingprosolutions/bookkeeping-consultation-1"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-block bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold px-6 py-3 rounded-lg transition-all transform hover:scale-105"
