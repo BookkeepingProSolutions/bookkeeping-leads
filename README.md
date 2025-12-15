@@ -16,30 +16,46 @@ A professional Next.js landing page designed to generate leads for BookkeepingPr
   - Fully responsive mobile-first design
   - SEO optimized
 
+- **Analytics & Tracking**:
+  - Google Analytics 4 integration
+  - Facebook Pixel tracking
+  - Conversion event tracking
+  - UTM parameter support
+
 ## 🛠️ Tech Stack
 
 - **Framework**: Next.js 14 (App Router)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
-- **Deployment**: Vercel (recommended)
+- **Analytics**: Google Analytics 4, Facebook Pixel
+- **Deployment**: Vercel
 
 ## 📁 Project Structure
 
 ```
 /app
   page.tsx          # Main landing page
-  layout.tsx        # Root layout with SEO
+  layout.tsx        # Root layout with SEO + Analytics
   globals.css       # Global styles
 /components
   Hero.tsx          # Hero section
   EbookCards.tsx    # Ebook selection cards
   ContactForm.tsx   # Lead capture form
   Footer.tsx        # Footer component
+/lib
+  analytics.ts      # Analytics tracking utilities
 /public
   /ebooks           # HTML ebooks (ready for PDF conversion)
     7-financial-tricks-construction.html
     tax-minimization-checklist.html
     scalable-bookkeeping-blueprint.html
+/marketing
+  email-sequences.md      # Complete email automation templates
+  outreach-templates.md   # Cold outreach email templates
+  social-media-strategy.md # 30-day content calendar
+  analytics-setup.md      # Analytics configuration guide
+DEPLOYMENT.md      # Complete Vercel deployment guide
+vercel.json        # Vercel configuration
 ```
 
 ## 🚀 Getting Started
@@ -70,52 +86,92 @@ npm start
 
 ## 🌐 Deployment
 
-### Deploy to Vercel (Recommended)
+### Quick Deploy to Vercel
 
-1. Push this repo to GitHub
-2. Go to [vercel.com](https://vercel.com)
-3. Import your GitHub repository
-4. Vercel will auto-detect Next.js and deploy
+See **[DEPLOYMENT.md](./DEPLOYMENT.md)** for complete step-by-step instructions.
+
+**Quick steps:**
+1. Push to GitHub
+2. Import to Vercel
+3. Add environment variables
+4. Deploy!
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/BookkeepingProSolutions/bookkeeping-leads)
 
-### Deploy to Netlify
+## 🔒 Environment Variables
+
+Create these in Vercel (or `.env.local` for local development):
 
 ```bash
-npm run build
-# Deploy the .next folder
+# Google Analytics (optional but recommended)
+NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
+
+# Facebook Pixel (optional but recommended)
+NEXT_PUBLIC_FB_PIXEL_ID=123456789012345
+
+# Calendly URL
+NEXT_PUBLIC_CALENDLY_URL=https://calendly.com/your-link
 ```
 
-## 📧 Email Integration
+See **[DEPLOYMENT.md](./DEPLOYMENT.md)** for how to get these values.
 
-The contact form currently displays a success message. To enable email functionality:
+## 📧 Email Marketing
 
-1. Create an API route at `/app/api/submit/route.ts`
-2. Integrate with:
-   - **Resend** (recommended for transactional emails)
-   - **SendGrid**
-   - **Mailgun**
-   - Or your preferred email service
+### Email Automation Sequences
 
-Example with Resend:
+Complete email sequences ready to import into Mailchimp, ConvertKit, or ActiveCampaign:
+
+- Welcome sequence (5 emails)
+- Lead magnet nurture sequences
+- Re-engagement campaigns
+- Post-consultation follow-ups
+
+📄 See **[marketing/email-sequences.md](./marketing/email-sequences.md)**
+
+## 📤 Cold Outreach Templates
+
+Ready-to-use email templates for:
+- Construction company outreach
+- Real estate professional outreach
+- Partnership/referral outreach
+- LinkedIn messaging
+
+📄 See **[marketing/outreach-templates.md](./marketing/outreach-templates.md)**
+
+## 📱 Social Media Strategy
+
+30-day content calendar with:
+- LinkedIn posts (3-5x/week)
+- Instagram content (4-5x/week)
+- Facebook posts (3-4x/week)
+- Content templates and hashtag strategy
+
+📄 See **[marketing/social-media-strategy.md](./marketing/social-media-strategy.md)**
+
+## 📊 Analytics Setup
+
+Complete guides for:
+- Google Analytics 4 setup
+- Facebook Pixel configuration
+- Conversion tracking
+- UTM parameter strategy
+- Dashboard creation
+
+📄 See **[marketing/analytics-setup.md](./marketing/analytics-setup.md)**
+
+### Track Events Programmatically
 
 ```typescript
-import { Resend } from 'resend';
+import { trackLeadMagnetDownload, trackFormSubmission, trackCalendlyClick } from '@/lib/analytics';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Track lead magnet download
+trackLeadMagnetDownload('7 Financial Tricks');
 
-export async function POST(request: Request) {
-  const data = await request.json();
-  
-  await resend.emails.send({
-    from: 'leads@bookkeepingpro-solutions.com',
-    to: 'contact@bookkeepingpro-solutions.com',
-    subject: 'New Lead from Website',
-    html: `<p>New lead: ${data.name} - ${data.email}</p>`
-  });
-  
-  return Response.json({ success: true });
-}
+// Track form submission
+trackFormSubmission('Contact Form');
+
+// Track consultation booking
+trackCalendlyClick();
 ```
 
 ## 📄 Converting Ebooks to PDF
@@ -137,13 +193,6 @@ wkhtmltopdf public/ebooks/7-financial-tricks-construction.html public/ebooks/7-f
 wkhtmltopdf public/ebooks/tax-minimization-checklist.html public/ebooks/tax-minimization-checklist.pdf
 wkhtmltopdf public/ebooks/scalable-bookkeeping-blueprint.html public/ebooks/scalable-bookkeeping-blueprint.pdf
 ```
-
-### Option 3: Using Puppeteer (Automated)
-```bash
-npm install puppeteer
-```
-
-Create a script to auto-convert all HTML to PDF.
 
 ## 🎨 Customization
 
@@ -168,23 +217,35 @@ theme: {
 
 Edit `/components/Footer.tsx` to update contact details.
 
-## 📊 Analytics
+## 📈 Lead Generation Roadmap
 
-Add Google Analytics or Plausible:
+Now that your site is ready, here's your roadmap to start generating clients:
 
-```typescript
-// app/layout.tsx
-<Script src="https://www.googletagmanager.com/gtag/js?id=GA_ID" />
-```
+### Week 1: Deploy & Setup
+- [ ] Deploy to Vercel (see [DEPLOYMENT.md](./DEPLOYMENT.md))
+- [ ] Set up Google Analytics & Facebook Pixel
+- [ ] Configure email automation platform
+- [ ] Test all forms and tracking
 
-## 🔒 Environment Variables
+### Week 2: Traffic Generation
+- [ ] Launch Google Ads campaign
+- [ ] Start social media posting (use 30-day calendar)
+- [ ] Begin cold outreach (50 emails/week)
+- [ ] Optimize for local SEO
 
-Create `.env.local`:
+### Week 3-4: Scale
+- [ ] A/B test landing page elements
+- [ ] Expand ad campaigns
+- [ ] Build strategic partnerships
+- [ ] Create video content
 
-```
-RESEND_API_KEY=your_api_key
-NEXT_PUBLIC_GA_ID=your_ga_id
-```
+## 📚 Complete Documentation
+
+- **[DEPLOYMENT.md](./DEPLOYMENT.md)** - Deploy to Vercel + custom domain setup
+- **[marketing/email-sequences.md](./marketing/email-sequences.md)** - Email automation templates
+- **[marketing/outreach-templates.md](./marketing/outreach-templates.md)** - Cold email templates
+- **[marketing/social-media-strategy.md](./marketing/social-media-strategy.md)** - 30-day content plan
+- **[marketing/analytics-setup.md](./marketing/analytics-setup.md)** - Analytics configuration
 
 ## 📝 License
 
@@ -193,3 +254,7 @@ NEXT_PUBLIC_GA_ID=your_ga_id
 ## 🤝 Support
 
 For questions or support, contact: contact@bookkeepingpro-solutions.com
+
+---
+
+**Ready to launch?** Start with [DEPLOYMENT.md](./DEPLOYMENT.md) →
