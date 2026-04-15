@@ -10,7 +10,7 @@
 ## ✅ COMPLETED DELIVERABLES
 
 ### Website & Deployment
-- [x] Live website: https://bookkeeping-leads-mu-one.vercel.app
+- [x] Live website: https://bookkeeping-leads.vercel.app
 - [x] SSL certificate active (https secure)
 - [x] Mobile responsive design
 - [x] GitHub repository set up
@@ -152,7 +152,7 @@ With the new lead generation system, you can scale to:
 ## 📁 ALL RESOURCES READY
 
 **Live System:**
-- Website: https://bookkeeping-leads-mu-one.vercel.app
+- Website: https://bookkeeping-leads.vercel.app
 - GitHub: https://github.com/BookkeepingProSolutions/bookkeeping-leads
 - Vercel: https://vercel.com/bookkeepingprosolutions-projects/bookkeeping-leads
 

@@ -3,7 +3,7 @@
 ## ✅ System Verification - All Complete
 
 ### Website & Technical
-- [x] Website live at https://bookkeeping-leads-mu-one.vercel.app
+- [x] Website live at https://bookkeeping-leads.vercel.app
 - [x] All 3 lead magnets accessible and downloadable
 - [x] Contact form present and ready
 - [x] Mobile responsive design verified
@@ -162,7 +162,7 @@
 
 ## Resources for Management
 
-**Live Site:** https://bookkeeping-leads-mu-one.vercel.app  
+**Live Site:** https://bookkeeping-leads.vercel.app  
 **Executive Summary:** `executive_summary.md` (comprehensive overview)  
 **Project Walkthrough:** `walkthrough.md` (what was built)  
 **All Documentation:** `/marketing/` folder

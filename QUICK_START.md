@@ -2,7 +2,7 @@
 
 ## ✅ YOUR SYSTEM IS ALREADY WORKING
 
-**Live Website:** https://bookkeeping-leads-mu-one.vercel.app
+**Live Website:** https://bookkeeping-leads.vercel.app
 
 Everything is deployed and functional. Analytics setup is **optional** - you can start generating leads RIGHT NOW without it.
 
@@ -28,7 +28,7 @@ Here are the 5 most expensive mistakes I see:
 Which one hits home for you? 
 
 P.S. I created a FREE guide with solutions to all 5:
-https://bookkeeping-leads-mu-one.vercel.app
+https://bookkeeping-leads.vercel.app
 
 #ConstructionBusiness #Bookkeeping #SmallBusiness
 ```
@@ -92,7 +92,7 @@ I just created 3 FREE guides for business owners:
 ✅ Tax Minimization Checklist
 ✅ Scalable Bookkeeping Blueprint
 
-Download free: https://bookkeeping-leads-mu-one.vercel.app
+Download free: https://bookkeeping-leads.vercel.app
 
 Happy to answer any bookkeeping questions anyone has!
 ```
@@ -189,7 +189,7 @@ BookkeepingPro Solutions
 
 ## Resources (Everything You Need)
 
-**Your Live Site:** https://bookkeeping-leads-mu-one.vercel.app  
+**Your Live Site:** https://bookkeeping-leads.vercel.app  
 **Email Templates:** `/marketing/email-sequences.md`  
 **Outreach Templates:** `/marketing/outreach-templates.md`  
 **Social Posts:** `/marketing/social-media-strategy.md`  

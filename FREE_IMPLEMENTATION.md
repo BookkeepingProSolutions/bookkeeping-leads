@@ -15,7 +15,7 @@
 1. Go to https://analytics.google.com
 2. Create account: "BookkeepingPro Solutions"
 3. Create property: "BookkeepingPro Website"
-4. Add data stream: https://bookkeeping-leads-mu-one.vercel.app
+4. Add data stream: https://bookkeeping-leads.vercel.app
 5. Copy Measurement ID (G-XXXXXXXXXX)
 6. Add to Vercel environment variables
 

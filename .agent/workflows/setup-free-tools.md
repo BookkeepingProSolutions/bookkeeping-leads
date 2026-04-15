@@ -20,7 +20,7 @@ description: Quick setup guide for all free marketing tools
 8. **Industry:** Professional Services
 9. **Business size:** Small (1-10)
 10. **Data stream → Web**
-11. **Website URL:** https://bookkeeping-leads-mu-one.vercel.app
+11. **Website URL:** https://bookkeeping-leads.vercel.app
 12. **Stream name:** BookkeepingPro Website
 13. **Copy** the Measurement ID (looks like: G-XXXXXXXXXX)
 
@@ -44,7 +44,7 @@ description: Quick setup guide for all free marketing tools
 3. **Click** "Connect Data Sources" → Web
 4. **Choose** Facebook Pixel
 5. **Name:** BookkeepingPro Website
-6. **Website:** https://bookkeeping-leads-mu-one.vercel.app
+6. **Website:** https://bookkeeping-leads.vercel.app
 7. **Copy** Pixel ID (15-16 digits)
 
 **Add to Vercel:**
@@ -138,7 +138,7 @@ npm run build
 - Mailchimp Dashboard: https://mailchimp.com/dashboard
 
 **Website:**
-- Live Site: https://bookkeeping-leads-mu-one.vercel.app
+- Live Site: https://bookkeeping-leads.vercel.app
 - Vercel Dashboard: https://vercel.com/bookkeepingprosolutions-projects/bookkeeping-leads
 
 ---
@@ -176,7 +176,7 @@ Inside you'll learn:
 ✅ Cash flow management strategies
 ✅ Plus 4 more game-changing tactics
 
-Download free: https://bookkeeping-leads-mu-one.vercel.app
+Download free: https://bookkeeping-leads.vercel.app
 
 Save this post if you found it helpful! 💾
 ```
