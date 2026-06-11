@@ -6,18 +6,18 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Free Construction Business Guides | BookkeepingPro Solutions",
-  description: "Get free expert guides for construction business owners. Learn how to maximize profits, minimize taxes, and build scalable financial systems. 7 Financial Tricks, Tax Minimization Checklist, and Scalable Bookkeeping Blueprint.",
-  keywords: "construction bookkeeping, construction accounting, construction business, tax minimization, job costing, bookkeeping for contractors",
+  title: "Bookkeeping Services in Dover, NJ | BookkeepingPro Solutions",
+  description: "Expert bookkeeping, payroll, and tax services for small businesses and construction companies in Dover, NJ. Maximize profits and minimize taxes with BookkeepingPro Solutions.",
+  keywords: "Dover bookkeeping, Dover NJ accountant, local bookkeeper near me, construction bookkeeping, tax minimization, payroll services",
   openGraph: {
-    title: "Free Construction Business Guides | BookkeepingPro Solutions",
-    description: "Get free expert guides for construction business owners. Learn how to maximize profits, minimize taxes, and build scalable financial systems.",
+    title: "Bookkeeping Services in Dover, NJ | BookkeepingPro Solutions",
+    description: "Expert bookkeeping, payroll, and tax services for small businesses in Dover, NJ.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Construction Business Guides | BookkeepingPro Solutions",
-    description: "Get free expert guides for construction business owners.",
+    title: "Bookkeeping Services in Dover, NJ | BookkeepingPro Solutions",
+    description: "Expert bookkeeping, payroll, and tax services for small businesses in Dover, NJ.",
   },
 };
 
@@ -28,6 +28,23 @@ export default function RootLayout({
 }>) {
   const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
   const FB_PIXEL_ID = process.env.NEXT_PUBLIC_FB_PIXEL_ID;
+
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "AccountingService",
+    "name": "BookkeepingPro Solutions",
+    "url": "https://bookkeepingpro-solutions.com",
+    "telephone": "+1-908-288-5268",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "169 Washington Ave",
+      "addressLocality": "Dover",
+      "addressRegion": "NJ",
+      "postalCode": "07801",
+      "addressCountry": "US"
+    },
+    "priceRange": "$$"
+  };
 
   return (
     <html lang="en" className="scroll-smooth">
@@ -69,6 +86,12 @@ export default function RootLayout({
             `}
           </Script>
         )}
+
+        {/* Local SEO Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
       </head>
       <body className={inter.className}>{children}</body>
     </html>
