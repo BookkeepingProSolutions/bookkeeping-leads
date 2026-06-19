@@ -54,8 +54,8 @@ export default function HomeClient({ initialNiche }: { initialNiche: string }) {
             </header>
 
             <Hero activeNicheId={activeNiche} />
-            <EbookCards key={activeNiche} activeNicheId={activeNiche} />
-            <ContactForm key={activeNiche} activeNicheId={activeNiche} />
+            <EbookCards key={`ebooks-${activeNiche}`} activeNicheId={activeNiche} />
+            <ContactForm key={`form-${activeNiche}`} activeNicheId={activeNiche} />
             <Footer activeNicheId={activeNiche} />
         </main>
     );
