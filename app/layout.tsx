@@ -26,7 +26,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+  const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "AW-18244378942";
   const FB_PIXEL_ID = process.env.NEXT_PUBLIC_FB_PIXEL_ID;
 
   const localBusinessSchema = {
