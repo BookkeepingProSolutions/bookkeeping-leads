@@ -1,0 +1,9 @@
+node_modules
+AskLive
+.git
+.next
+*.md
+social_posts_week1.txt
+outreach_email_template.txt
+lead_tracking_template.md
+home_remodeling_materials.csv

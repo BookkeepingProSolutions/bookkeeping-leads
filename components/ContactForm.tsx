@@ -1,8 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { niches, NicheId } from "@/lib/nicheConfig";
 
-export default function ContactForm() {
+export default function ContactForm({ activeNicheId }: { activeNicheId: NicheId }) {
+    const data = niches[activeNicheId];
+
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -14,6 +17,7 @@ export default function ContactForm() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitted, setSubmitted] = useState(false);
 
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
@@ -23,11 +27,6 @@ export default function ContactForm() {
 
         setIsSubmitting(false);
         setSubmitted(true);
-
-        // In a real implementation, you would:
-        // 1. Send data to your backend API
-        // 2. Trigger email notification to BookkeepingPro Solutions
-        // 3. Provide download link or email the PDF
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -37,6 +36,14 @@ export default function ContactForm() {
         });
     };
 
+    // Calculate which guides to display for download in Success view
+    const getDownloadLinks = () => {
+        if (formData.selectedEbook === "all") {
+            return data.ebooks;
+        }
+        return data.ebooks.filter(eb => eb.id === formData.selectedEbook);
+    };
+
     if (submitted) {
         return (
             <section id="contact-form" className="py-20 px-4 bg-gradient-to-b from-white to-blue-50">
@@ -44,18 +51,39 @@ export default function ContactForm() {
                     <div className="bg-white rounded-2xl shadow-2xl p-12 border-4 border-green-500">
                         <div className="text-6xl mb-6">🎉</div>
                         <h2 className="text-4xl font-bold text-gray-900 mb-4">Success!</h2>
-                        <p className="text-xl text-gray-600 mb-8">
-                            Check your email for your free guide(s). We've sent you instant access!
+                        <p className="text-xl text-gray-600 mb-6">
+                            We&apos;ve sent the guides to <strong className="text-blue-900">{formData.email}</strong>.
                         </p>
-                        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
-                            <p className="text-gray-800">
-                                <strong>What's Next?</strong><br />
-                                Our team will review your information and may reach out to discuss how we can help optimize your construction business finances.
+                        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8 text-left">
+                            <h3 className="font-bold text-blue-900 mb-3 text-lg">Your Free Downloads:</h3>
+                            <div className="space-y-3">
+                                {getDownloadLinks().map(eb => (
+                                    <a
+                                        key={eb.id}
+                                        href={`/ebooks/${eb.filename}`}
+                                        download
+                                        className="flex items-center justify-between bg-white border border-gray-200 hover:border-blue-400 p-3 rounded-lg hover:shadow-md transition-all group"
+                                    >
+                                        <span className="flex items-center gap-2 font-semibold text-gray-800">
+                                            <span>{eb.icon}</span>
+                                            <span className="group-hover:text-blue-700 transition-colors">{eb.title}</span>
+                                        </span>
+                                        <span className="text-sm font-bold bg-blue-100 text-blue-900 px-3 py-1 rounded-full group-hover:bg-blue-600 group-hover:text-white transition-all">
+                                            Download ↓
+                                        </span>
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+                        <div className="bg-orange-50 border border-orange-200 rounded-lg p-6 mb-8 text-left">
+                            <p className="text-gray-800 text-sm">
+                                💡 <strong>Maximize Your {data.label} Business Profits:</strong><br />
+                                Check your inbox. Our accounting team will review your business info and reach out to offer a free 30-minute consultation call.
                             </p>
                         </div>
                         <button
                             onClick={() => setSubmitted(false)}
-                            className="bg-blue-900 hover:bg-blue-800 text-white font-bold py-3 px-8 rounded-lg transition-all"
+                            className="bg-blue-900 hover:bg-blue-800 text-white font-bold py-3 px-8 rounded-lg transition-all cursor-pointer"
                         >
                             Download Another Guide
                         </button>
@@ -111,7 +139,7 @@ export default function ContactForm() {
                                 value={formData.email}
                                 onChange={handleChange}
                                 className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all"
-                                placeholder="john@constructionco.com"
+                                placeholder={data.emailPlaceholder}
                             />
                         </div>
 
@@ -145,7 +173,7 @@ export default function ContactForm() {
                                 value={formData.company}
                                 onChange={handleChange}
                                 className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all"
-                                placeholder="ABC Construction LLC"
+                                placeholder={data.companyPlaceholder}
                             />
                         </div>
 
@@ -163,9 +191,9 @@ export default function ContactForm() {
                                 className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all"
                             >
                                 <option value="all">All Three Guides (Recommended)</option>
-                                <option value="financial-tricks">7 Financial Tricks</option>
-                                <option value="tax-checklist">Tax Minimization Checklist</option>
-                                <option value="scalable-blueprint">Scalable Bookkeeping Blueprint</option>
+                                {data.ebooks.map((eb) => (
+                                    <option key={eb.id} value={eb.id}>{eb.title}</option>
+                                ))}
                             </select>
                         </div>
 
@@ -173,7 +201,7 @@ export default function ContactForm() {
                         <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-sm text-gray-600">
                             <p>
                                 🔒 Your information is safe with us. We respect your privacy and will never share your data.
-                                By submitting, you'll receive your free guide(s) and occasional helpful tips for construction business owners.
+                                By submitting, you&apos;ll receive your free guide(s) and occasional helpful tips for {data.label.toLowerCase()} business owners.
                             </p>
                         </div>
 
@@ -181,14 +209,15 @@ export default function ContactForm() {
                         <button
                             type="submit"
                             disabled={isSubmitting}
-                            className={`w-full font-bold py-4 px-8 rounded-lg text-lg transition-all transform hover:scale-105 shadow-lg ${isSubmitting
+                            className={`w-full font-bold py-4 px-8 rounded-lg text-lg transition-all transform hover:scale-105 shadow-lg cursor-pointer ${
+                                isSubmitting
                                     ? 'bg-gray-400 cursor-not-allowed'
-                                    : 'bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white'
-                                }`}
+                                    : `bg-gradient-to-r ${data.theme.ctaGradient} hover:${data.theme.ctaHoverGradient} text-white`
+                            }`}
                         >
                             {isSubmitting ? (
                                 <span className="flex items-center justify-center gap-2">
-                                    <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                                    <svg className="animate-spin h-5 w-5 animate-pulse" viewBox="0 0 24 24">
                                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                                     </svg>

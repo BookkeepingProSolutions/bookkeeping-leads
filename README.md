@@ -246,6 +246,7 @@ Now that your site is ready, here's your roadmap to start generating clients:
 - **[marketing/outreach-templates.md](./marketing/outreach-templates.md)** - Cold email templates
 - **[marketing/social-media-strategy.md](./marketing/social-media-strategy.md)** - 30-day content plan
 - **[marketing/analytics-setup.md](./marketing/analytics-setup.md)** - Analytics configuration
+- **[marketing/google-ads-strategy.md](./marketing/google-ads-strategy.md)** - Google Ads campaign strategy and assets
 
 ## 📝 License
 

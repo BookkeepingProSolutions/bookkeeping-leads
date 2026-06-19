@@ -1,16 +1,9 @@
-import Image from "next/image";
-import Hero from "@/components/Hero";
-import EbookCards from "@/components/EbookCards";
-import ContactForm from "@/components/ContactForm";
-import Footer from "@/components/Footer";
+import HomeClient from "@/components/HomeClient";
 
-export default function Home() {
-  return (
-    <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
-      <Hero />
-      <EbookCards />
-      <ContactForm />
-      <Footer />
-    </main>
-  );
+export default async function Home(props: {
+  searchParams: Promise<{ niche?: string }>;
+}) {
+  const resolvedSearchParams = await props.searchParams;
+  const initialNiche = resolvedSearchParams.niche || "construction";
+  return <HomeClient initialNiche={initialNiche} />;
 }

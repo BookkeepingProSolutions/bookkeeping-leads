@@ -1,15 +1,19 @@
-export default function Footer() {
+import { niches, NicheId } from "@/lib/nicheConfig";
+
+export default function Footer({ activeNicheId }: { activeNicheId: NicheId }) {
+    const data = niches[activeNicheId];
+
     return (
         <footer className="bg-gray-900 text-white py-12 px-4">
             <div className="max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                     {/* Company Info */}
                     <div>
-                        <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">
+                        <h3 className={`text-2xl font-bold mb-4 bg-gradient-to-r ${data.theme.highlightText} bg-clip-text text-transparent`}>
                             BookkeepingPro Solutions
                         </h3>
                         <p className="text-gray-400 mb-4">
-                            Fast, accurate, and affordable bookkeeping services tailored specifically for construction businesses of all sizes.
+                            Fast, accurate, and affordable bookkeeping services tailored specifically for {data.label.toLowerCase()} businesses of all sizes.
                         </p>
                         <p className="text-gray-400">
                             Helping you maximize profits while minimizing tax burdens.
@@ -20,30 +24,12 @@ export default function Footer() {
                     <div>
                         <h4 className="text-lg font-bold mb-4">Services</h4>
                         <ul className="space-y-2 text-gray-400">
-                            <li className="flex items-start gap-2">
-                                <span className="text-green-400 mt-1">✔</span>
-                                <span>Bank Reconciliation</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                                <span className="text-green-400 mt-1">✔</span>
-                                <span>AP & AR Management</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                                <span className="text-green-400 mt-1">✔</span>
-                                <span>Payroll & Taxes</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                                <span className="text-green-400 mt-1">✔</span>
-                                <span>Catch-Up & Clean-Up</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                                <span className="text-green-400 mt-1">✔</span>
-                                <span>CPA-Ready Financial Statements</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                                <span className="text-green-400 mt-1">✔</span>
-                                <span>Financial Dashboards & KPIs</span>
-                            </li>
+                            {data.services.map((service, idx) => (
+                                <li key={idx} className="flex items-start gap-2">
+                                    <span className="text-green-400 mt-1">✔</span>
+                                    <span>{service}</span>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
@@ -68,7 +54,7 @@ export default function Footer() {
                                     href="https://calendly.com/bookkeepingprosolutions/bookkeeping-consultation-1"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-block bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold px-6 py-3 rounded-lg transition-all transform hover:scale-105"
+                                    className={`inline-block bg-gradient-to-r ${data.theme.ctaGradient} hover:${data.theme.ctaHoverGradient} text-white font-bold px-6 py-3 rounded-lg transition-all transform hover:scale-105`}
                                 >
                                     Schedule Free Consultation
                                 </a>
@@ -81,7 +67,7 @@ export default function Footer() {
                 <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
                     <p>&copy; {new Date().getFullYear()} BookkeepingPro Solutions. All rights reserved.</p>
                     <p className="mt-2 text-sm">
-                        Serving construction businesses nationwide with expert bookkeeping and financial services.
+                        Serving {data.label.toLowerCase()} businesses nationwide with expert bookkeeping and financial services.
                     </p>
                 </div>
             </div>

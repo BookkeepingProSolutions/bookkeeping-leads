@@ -1,8 +1,12 @@
 "use client";
 
-export default function Hero() {
+import { niches, NicheId } from "@/lib/nicheConfig";
+
+export default function Hero({ activeNicheId }: { activeNicheId: NicheId }) {
+    const data = niches[activeNicheId];
+
     return (
-        <section className="relative overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-950 text-white">
+        <section className={`relative overflow-hidden bg-gradient-to-br ${data.theme.bgGradient} text-white transition-all duration-700`}>
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-10">
                 <div className="absolute inset-0" style={{
@@ -17,28 +21,25 @@ export default function Hero() {
                         <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                         </svg>
-                        <span className="text-sm font-medium">Top-Rated Bookkeeping Service in Dover, NJ</span>
+                        <span className="text-sm font-medium">{data.trustBadge}</span>
                     </div>
 
                     {/* Main Headline */}
                     <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-                        Stop Leaving Money
-                        <span className="block bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">
-                            On The Table
+                        {data.headline}
+                        <span className={`block bg-gradient-to-r ${data.theme.highlightText} bg-clip-text text-transparent`}>
+                            {data.headlineHighlight}
                         </span>
                     </h1>
 
                     {/* Subheadline */}
-                    <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
-                        Construction business owners overpay on taxes by <strong className="text-white">$15,000-$50,000/year</strong>.
-                        Get our <strong className="text-white">free expert guides</strong> and start keeping more of what you earn.
-                    </p>
+                    <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed" dangerouslySetInnerHTML={{ __html: data.subheadline }} />
 
                     {/* CTA */}
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                         <a
                             href="#ebooks"
-                            className="group inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold px-8 py-4 rounded-lg text-lg transition-all transform hover:scale-105 shadow-xl hover:shadow-2xl"
+                            className={`group inline-flex items-center gap-2 bg-gradient-to-r ${data.theme.ctaGradient} hover:${data.theme.ctaHoverGradient} text-white font-bold px-8 py-4 rounded-lg text-lg transition-all transform hover:scale-105 shadow-xl hover:shadow-2xl`}
                         >
                             Get Your Free Guides
                             <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -47,37 +48,19 @@ export default function Hero() {
                         </a>
                     </div>
 
-                    {/* Value Props */}
+                    {/* Dynamic Value Props */}
                     <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                        <div className="flex flex-col items-center">
-                            <div className="bg-blue-700/50 backdrop-blur-sm p-4 rounded-full mb-4">
-                                <svg className="w-8 h-8 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
+                        {data.valueProps.map((prop, idx) => (
+                            <div key={idx} className="flex flex-col items-center">
+                                <div className="bg-white/10 backdrop-blur-sm p-4 rounded-full mb-4">
+                                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={prop.iconSvgPath} />
+                                    </svg>
+                                </div>
+                                <h3 className="font-bold text-lg mb-2">{prop.title}</h3>
+                                <p className="text-blue-200 text-sm">{prop.description}</p>
                             </div>
-                            <h3 className="font-bold text-lg mb-2">Maximize Profits</h3>
-                            <p className="text-blue-200 text-sm">Keep more of your hard-earned money</p>
-                        </div>
-
-                        <div className="flex flex-col items-center">
-                            <div className="bg-blue-700/50 backdrop-blur-sm p-4 rounded-full mb-4">
-                                <svg className="w-8 h-8 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                            </div>
-                            <h3 className="font-bold text-lg mb-2">Industry Expertise</h3>
-                            <p className="text-blue-200 text-sm">Construction-specific strategies</p>
-                        </div>
-
-                        <div className="flex flex-col items-center">
-                            <div className="bg-blue-700/50 backdrop-blur-sm p-4 rounded-full mb-4">
-                                <svg className="w-8 h-8 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                </svg>
-                            </div>
-                            <h3 className="font-bold text-lg mb-2">Fast & Accurate</h3>
-                            <p className="text-blue-200 text-sm">Free up time to focus on building</p>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </div>
