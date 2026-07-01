@@ -22,11 +22,57 @@ export default function ContactForm({ activeNicheId }: { activeNicheId: NicheId 
         e.preventDefault();
         setIsSubmitting(true);
 
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        const formspreeUrl = process.env.NEXT_PUBLIC_FORMSPREE_URL;
+        const conversionLabel = process.env.NEXT_PUBLIC_CONVERSION_LABEL;
 
-        setIsSubmitting(false);
-        setSubmitted(true);
+        try {
+            // 1. Submit lead details to Formspree
+            if (formspreeUrl && formspreeUrl !== "YOUR_FORMSPREE_URL_HERE") {
+                const response = await fetch(formspreeUrl, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Accept: "application/json"
+                    },
+                    body: JSON.stringify({
+                        name: formData.name,
+                        email: formData.email,
+                        phone: formData.phone,
+                        company: formData.company,
+                        selectedEbook: formData.selectedEbook,
+                        _subject: `New Lead: ${formData.name} (${formData.company})`
+                    })
+                });
+
+                const result = await response.json();
+                if (!response.ok || !result.ok) {
+                    console.error("Formspree submission failed:", result);
+                } else {
+                    console.log("Lead successfully submitted to Formspree!");
+                }
+            } else {
+                console.warn("Formspree URL is missing or set to placeholder. Form submission mocked.");
+                await new Promise(resolve => setTimeout(resolve, 1000));
+            }
+
+            // 2. Trigger Google Ads conversion tracking
+            if (typeof window !== "undefined" && (window as any).gtag && conversionLabel) {
+                (window as any).gtag('event', 'conversion', {
+                    'send_to': conversionLabel,
+                    'value': 1.0,
+                    'currency': 'USD'
+                });
+                console.log("Google Ads conversion event triggered:", conversionLabel);
+            } else {
+                console.warn("Google Ads gtag not detected or conversion label missing.");
+            }
+
+        } catch (error) {
+            console.error("Error submitting contact form:", error);
+        } finally {
+            setIsSubmitting(false);
+            setSubmitted(true);
+        }
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {

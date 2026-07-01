@@ -28,6 +28,7 @@ export default function RootLayout({
 }>) {
   const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "AW-18244378942";
   const FB_PIXEL_ID = process.env.NEXT_PUBLIC_FB_PIXEL_ID;
+  const GADS_ID = process.env.NEXT_PUBLIC_GADS_ID;
 
   const localBusinessSchema = {
     "@context": "https://schema.org",
@@ -50,7 +51,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <head>
         {/* Google Analytics */}
-        {GA_ID && (
+        {GA_ID && GA_ID !== "G-PLACEHOLDER" && (
           <>
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
@@ -64,6 +65,24 @@ export default function RootLayout({
                 gtag('config', '${GA_ID}', {
                   page_path: window.location.pathname,
                 });
+              `}
+            </Script>
+          </>
+        )}
+
+        {/* Google Ads Tag */}
+        {GADS_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GADS_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-ads" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GADS_ID}');
               `}
             </Script>
           </>
