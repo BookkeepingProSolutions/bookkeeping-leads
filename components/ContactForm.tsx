@@ -39,8 +39,10 @@ export default function ContactForm({ activeNicheId }: { activeNicheId: NicheId 
                         email: formData.email,
                         phone: formData.phone,
                         company: formData.company,
+                        niche: activeNicheId,
+                        nicheLabel: data.label,
                         selectedEbook: formData.selectedEbook,
-                        _subject: `New Lead: ${formData.name} (${formData.company})`
+                        _subject: `New Lead [${data.label}]: ${formData.name} (${formData.company})`
                     })
                 });
 
