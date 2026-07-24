@@ -51,7 +51,7 @@ export default function Footer({ activeNicheId }: { activeNicheId: NicheId }) {
                             </p>
                             <div className="mt-4">
                                 <a
-                                    href="https://calendly.com/bookkeepingprosolutions/bookkeeping-consultation-1"
+                                    href={process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/bookkeepingprosolutions/bookkeeping-consultation-1"}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={`inline-block bg-gradient-to-r ${data.theme.ctaGradient} hover:${data.theme.ctaHoverGradient} text-white font-bold px-6 py-3 rounded-lg transition-all transform hover:scale-105`}

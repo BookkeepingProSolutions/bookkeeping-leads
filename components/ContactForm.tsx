@@ -124,10 +124,18 @@ export default function ContactForm({ activeNicheId }: { activeNicheId: NicheId 
                             </div>
                         </div>
                         <div className="bg-orange-50 border border-orange-200 rounded-lg p-6 mb-8 text-left">
-                            <p className="text-gray-800 text-sm">
+                            <p className="text-gray-800 text-sm mb-4">
                                 💡 <strong>Maximize Your {data.label} Business Profits:</strong><br />
-                                Check your inbox. Our accounting team will review your business info and reach out to offer a free 30-minute consultation call.
+                                Book a free 15-minute consultation with our expert accounting team to audit your books and find hidden tax deductions.
                             </p>
+                            <a
+                                href={process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/bookkeepingpro"}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`w-full block text-center font-bold py-3 px-6 rounded-lg text-white bg-gradient-to-r ${data.theme.ctaGradient} hover:${data.theme.ctaHoverGradient} shadow-md transition-all transform hover:scale-[1.02]`}
+                            >
+                                📅 Book Free Consultation Now
+                            </a>
                         </div>
                         <button
                             onClick={() => setSubmitted(false)}
